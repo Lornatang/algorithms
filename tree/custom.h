@@ -31,9 +31,9 @@ class Btree {
   int findnode(tree *);
   // 查找二叉树中是否存在
   bool Search(tree *, int);
-
+  // 向二叉树中插入元素
   void InsertNode(tree* *, int);
-
+  // 删除二叉树中的某个元素
   int DeleteNode(tree* *, int);
 };
 
@@ -73,4 +73,8 @@ int Btree::count(tree *p) {
 
 #ifndef LEN
 #define len(x) sizeof(x) / sizeof(x[0])
+#endif
+
+#ifndef END
+#define end cout << endl;
 #endif

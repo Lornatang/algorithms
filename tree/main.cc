@@ -13,12 +13,21 @@ int main(void) {
   cout << "The number of nodes in a binary tree with degree one: "
        << Tree.findnode(Tree.root) << endl;
 
-  cout << endl << "Preorder: " << endl;
+  cout << "Preorder: ";
+  end;
   Tree.dispPreorder();
-  cout << endl << "Inorder: " << endl;
+  cout << "Inorder: ";
+  end;
   Tree.dispInorder();
-  cout << endl << "Postorder: " << endl;
+  cout << "Postorder: ";
+  end;
   Tree.dispPostorder();
+  end;
+  cout << "Insert elem 5";
+  Tree.InsertNode(&Tree.root, 5);
+  Tree.dispPreorder();
+  end;
+  
 
   return 0;
 }
