@@ -11,7 +11,7 @@ BTNode *findmin(BTNode *root) {
   return 0;
 }
 
-//查找元素，若存在返回1，不存在返回0
+// Find the element, return 1 if it exists, return 0 does not exist
 bool find(BTNode *root, int data) {
   if (root == NULL)
     return false;
@@ -32,13 +32,13 @@ BTNode *delnum(BTNode *root, int data) {
   else if (data < root->data)
     root->left = delnum(root->left, data);
   else {
-    //待删除结点有两个孩子的情形
+    // The situation where the node to be deleted has two children.
     if (root->left && root->right) {
       BTNode *tmp = findmin(root->right);
       root->data = tmp->data;
       root->right = delnum(root->right, tmp->data);
     }
-    //待删除结点仅仅有一个或者没有孩子
+    // The node to be deleted has only one or no children.
     else {
       if (root->left == NULL)
         root = root->right;

@@ -4,6 +4,13 @@
 #endif
 
 #include <cstdlib>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+#ifndef __MAX__
+#define MAX 9999
+#endif 
 
 // Create a binary tree structure.
 typedef struct node {
