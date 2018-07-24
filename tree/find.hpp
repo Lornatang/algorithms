@@ -1,7 +1,7 @@
 // Author: shiyi
-#ifndef FIND_H
-#define FIND_H
-#include "traverse.h"
+#ifndef FIND_HPP
+#define FIND_HPP
+#include "traverse.hpp"
 
 int Btree::findleaf(tree *t) {
   if (t == NULL)

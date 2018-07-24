@@ -1,6 +1,6 @@
-#ifndef extension_H
-#define extension_H
-#include "find.h"
+#ifndef extension_HPP
+#define extension_HPP
+#include "find.hpp"
 bool Btree::Search(tree *t, int key) {
   if (t == NULL) {
     return false;
