@@ -1,48 +1,70 @@
 // Author: shiyi
-#ifndef CUSTOM_HPP
-#define CUSTOM_HPP
-#endif
-
-#include <cstdlib>
+#ifndef CUSTOM_H
+#define CUSTOM_H
 #include <iostream>
-#include <vector>
 using namespace std;
 
-#ifndef __MAX__
-#define MAX 9999
-#endif 
-
-// Create a binary tree structure.
-typedef struct node {
+struct tree {
   int data;
-  struct node *left, *right;
-} BTNode;
+  tree *left, *right;
+};
 
-// Create a binary tree.
-BTNode *CreateBTree(int a[], int n) {
-  BTNode *root, *c, *p, *pa;
-  root = (BTNode *)malloc(sizeof(BTNode)); // Create the root node.
-  root->data = a[0];
-  root->left = NULL;
-  root->right = NULL;
-  // Create other nodes.
-  for (int i = 1; i < n; i++) {
-    p = (BTNode *)malloc(sizeof(BTNode));
-    p->data = a[i];
-    p->left = p->right = NULL;
-    c = root;
-    while (c) {
-      pa = c;
-      if (c->data > p->data)
-        c = c->left;
+class Btree {
+  static int n;
+  static int m;
+
+ public:
+  tree *root;
+  Btree() { root = NULL; }
+  void create_Btree(int);
+  void Preorder(tree *);   //先序遍历
+  void Inorder(tree *);    //中序遍历
+  void Postorder(tree *);  //后序遍历
+  void dispPreorder() { Preorder(root); }
+  void dispInorder() { Inorder(root); }
+  void dispPostorder() { Postorder(root); }
+  // 计算二叉树的个数
+  int count(tree *);
+  // 求二叉树叶子的个数
+  int findleaf(tree *);
+  // 求二叉树中度数为1的结点数量
+  int findnode(tree *);
+};
+
+int Btree::n = 0;
+int Btree::m = 0;
+
+void Btree::create_Btree(int x) {
+  tree *newnode = new tree;
+  newnode->data = x;
+  newnode->right = newnode->left = NULL;
+  if (root == NULL)
+    root = newnode;
+  else {
+    tree *back;
+    tree *current = root;
+    while (current != NULL) {
+      back = current;
+      if (current->data > x)
+        current = current->left;
       else
-        c = c->right;
+        current = current->right;
     }
-    if (pa->data > p->data)
-      pa->left = p;
+    if (back->data > x)
+      back->left = newnode;
     else
-      pa->right = p;
+      back->right = newnode;
   }
-  free(p); // Free memory.
-  return root;
 }
+
+int Btree::count(tree *p) {
+  if (p == NULL)
+    return 0;
+  else
+    return count(p->left) + count(p->right) + 1;  // 递归。
+}
+#endif
+
+#ifndef LEN
+#define len(x) sizeof(x) / sizeof(x[0])
+#endif

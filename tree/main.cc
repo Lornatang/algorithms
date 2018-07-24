@@ -1,25 +1,24 @@
 // Author: shiyi
 #include "find.h"
-#include "traverse.h"
-
-#
 
 int main(void) {
-  int a[] = {6, 2, 3, 7, 4, 8, 5, 9, 1, 12, 16, 20, 11, 10, 13};
-  BTNode *root;                    // Create the root node
-  int n = sizeof(a) / sizeof(int); // Array length.
-  root = CreateBTree(a, n);
-  // Traverse the output.
-  cout << "First: ";
-  Forder(root);
+  Btree Tree;
+  int array[] = {100, 4, 2, 3, 15, 35, 6, 45, 55, 20, 1, 14, 56, 57, 58};
+  for (int i = 0; i < len(array); i++) {
+    Tree.create_Btree(array[i]);
+  }
   cout << endl;
-  cout << "Middle: ";
-  Inorder(root);
-  cout << endl;
-  cout << "Last: ";
-  Porder(root);
+  cout << "Number of nodes: " << Tree.count(Tree.root) << endl;
+  cout << "Number of leaf: " << Tree.findleaf(Tree.root) << endl;
+  cout << "The number of nodes in a binary tree with degree one: "
+       << Tree.findnode(Tree.root) << endl;
 
-  //
+  cout << endl << "Preorder: " << endl;
+  Tree.dispPreorder();
+  cout << endl << "Inorder: " << endl;
+  Tree.dispInorder();
+  cout << endl << "Postorder: " << endl;
+  Tree.dispPostorder();
 
   return 0;
 }

@@ -1,38 +1,30 @@
 // Author: shiyi
+#ifndef TRAVERSE_H
+#define TRAVERSE_H
 #include "custom.h"
 
-// The preceding sequence traverses the output.
-int Forder(BTNode *root) {
-  vector<int> array;
-  if (!root) {
-    return 0;
-  } else {
-    array.push_back(root->data);
-    Forder(root->left);
-    Forder(root->right);
+void Btree::Preorder(tree *t)  //这是先序遍历二叉树，采用了递归的方法。
+{
+  if (t != NULL) {
+    cout << t->data << " ";
+    Preorder(t->left);
+    Preorder(t->right);
   }
 }
-
-// Middle order traversal output.
-void Inorder(BTNode *root) {
-  vector<int> array;
-  if (!root)
-    return;
-  else {
-    Inorder(root->left);
-    array.push_back(root->data);
-    Inorder(root->right);
+void Btree::Inorder(tree *t)  //这是中序遍历二叉树，采用了递归的方法。
+{
+  if (t != NULL) {
+    Inorder(t->left);
+    cout << t->data << " ";
+    Inorder(t->right);
   }
 }
-
-// Sequential traversal output.
-void Porder(BTNode *root) {
-  vector<int> array;
-  if (!root) {
-    return;
-  } else {
-    Porder(root->left);
-    Porder(root->right);
-    array.push_back(root->data);
+void Btree::Postorder(tree *t)  //这是后序遍历二叉树，采用了递归的方法。
+{
+  if (t != NULL) {
+    Postorder(t->left);
+    Postorder(t->right);
+    cout << t->data << " ";
   }
 }
+#endif
