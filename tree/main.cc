@@ -1,5 +1,6 @@
 #include "custom.hpp"
-// 前序遍历输出
+
+// The preceding sequence traverses the output.
 void Forder(BTNode *root) {
   if (!root) {
     return;
@@ -10,7 +11,7 @@ void Forder(BTNode *root) {
   }
 }
 
-//利用中序遍历输出
+// Middle order traversal output.
 void Inorder(BTNode *root) {
   if (!root)
     return;
@@ -21,7 +22,7 @@ void Inorder(BTNode *root) {
   }
 }
 
-// 后序输出二叉树
+// Sequential traversal output.
 void Porder(BTNode *root) {
   if (!root) {
     return;
@@ -34,14 +35,14 @@ void Porder(BTNode *root) {
 
 int main(void) {
   int a[] = {6, 2, 3, 7, 4, 8, 5, 9, 1, 12, 16, 20, 11, 10, 13};
-  BTNode *root;                    // 创建根结点
-  int n = sizeof(a) / sizeof(int); // 数组长度
+  BTNode *root;                     // Create the root node
+  int n = sizeof(a) / sizeof(int);  // Array length.
   root = CreateBTree(a, n);
-  Forder(root); // 前序遍历
+  Forder(root);
   cout << endl;
-  Inorder(root); // 中序遍历
+  Inorder(root);
   cout << endl;
-  Porder(root); // 后序遍历
+  Porder(root);
   cout << endl;
   return 0;
 }
