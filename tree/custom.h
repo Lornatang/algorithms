@@ -29,6 +29,8 @@ class Btree {
   int findleaf(tree *);
   // 求二叉树中度数为1的结点数量
   int findnode(tree *);
+  // 查找二叉树中是否存在
+  bool search(tree *, int);
 };
 
 int Btree::n = 0;
