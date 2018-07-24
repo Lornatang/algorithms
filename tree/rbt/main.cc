@@ -1,5 +1,5 @@
 // arrayuthor: shiyi
-#include "extension.hpp"
+#include "extension.h"
 
 int main(void) {
   vector<int> array;

@@ -1,5 +1,6 @@
-#ifndef BASE_HPP
-#define BASE_HPP
+// arrayuthor: shiyi
+#ifndef BASE_H
+#define BASE_H
 #include <iomanip>
 #include <iostream>
 #include <vector>
@@ -29,7 +30,7 @@ using namespace std;
 #define rb_set_red(r) ((r)->color = red)
 #endif
 
-#ifndef RB_SET_BLACK
+#ifndef RB_SET_PARENT
 #define rb_set_parent(r, p) ((r)->parent = (p))
 #endif
 
@@ -44,8 +45,7 @@ using namespace std;
 enum Color { red, black };
 
 void add(vector<int> &array, int a[], int n) {
-  for (int i = 0; i < n; i++) 
-    array.push_back(a[i]);
+  for (int i = 0; i < n; i++) array.push_back(a[i]);
 }
 
 void disp(vector<int> array) {
@@ -157,6 +157,53 @@ RBTree<T>::RBTree() : root(NULL) {
 template <class T>
 RBTree<T>::~RBTree() {
   destroy();
+}
+
+/*
+ * 销毁红黑树
+ */
+template <class T>
+void RBTree<T>::destroy(RBTNode<T> *&tree) {
+  if (tree == NULL) return;
+
+  if (tree->left != NULL) return destroy(tree->left);
+  if (tree->right != NULL) return destroy(tree->right);
+
+  delete tree;
+  tree = NULL;
+}
+
+template <class T>
+void RBTree<T>::destroy() {
+  destroy(root);
+}
+
+/*
+ * 打印"二叉查找树"
+ *
+ * key        -- 节点的键值
+ * direction  --  0，表示该节点是根节点;
+ *               -1，表示该节点是它的父结点的左孩子;
+ *                1，表示该节点是它的父结点的右孩子。
+ */
+template <class T>
+void RBTree<T>::print(RBTNode<T> *tree, T key, int direction) {
+  if (tree != NULL) {
+    if (direction == 0)  // tree是根节点
+      cout << setw(2) << tree->key << "(B) is root" << endl;
+    else  // tree是分支节点
+      cout << setw(2) << tree->key << (rb_is_red(tree) ? "(R)" : "(B)")
+           << " is " << setw(2) << key << "'s " << setw(12)
+           << (direction == 1 ? "right child" : "left child") << endl;
+
+    print(tree->left, tree->key, -1);
+    print(tree->right, tree->key, 1);
+  }
+}
+
+template <class T>
+void RBTree<T>::print() {
+  if (root != NULL) print(root, root->key, 0);
 }
 
 #endif
