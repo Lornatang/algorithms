@@ -7,27 +7,40 @@ int main(void) {
   for (int i = 0; i < len(array); i++) {
     Tree.create_Btree(array[i]);
   }
-  cout << endl;
-  cout << "Number of nodes: " << Tree.count(Tree.root) << endl;
-  cout << "Number of leaf: " << Tree.findleaf(Tree.root) << endl;
-  cout << "The number of nodes in a binary tree with degree one: "
-       << Tree.findnode(Tree.root) << endl;
+  end;
 
-  cout << "Preorder: ";
-  end;
+  print("Number of nodes: ");
+  printf(Tree.count(Tree.root));
+
+  print("Number of leaf: ");
+  printf(Tree.findleaf(Tree.root));
+  
+  print("A binary tree with degree one: ");
+  printf(Tree.findnode(Tree.root));
+
+  printf("Preorder: ");
   Tree.dispPreorder();
-  cout << "Inorder: ";
   end;
+
+  printf("Inorder: ");
   Tree.dispInorder();
-  cout << "Postorder: ";
   end;
+
+  printf("Postorder: ");
   Tree.dispPostorder();
   end;
-  cout << "Insert elem 5";
+
+  printf("Insert elem 5.");
   Tree.InsertNode(&Tree.root, 5);
   Tree.dispPreorder();
   end;
-  
 
+  printf("Delete elem 5.");
+  Tree.DeleteNode(&Tree.root, 5);
+  Tree.dispPreorder();
+  end;
+  if (Tree.Search(Tree.root, 100)){
+    print("find!");
+  }
   return 0;
 }

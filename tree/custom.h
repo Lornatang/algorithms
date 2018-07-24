@@ -78,3 +78,11 @@ int Btree::count(tree *p) {
 #ifndef END
 #define end cout << endl;
 #endif
+
+#ifndef PRINT
+#define print(x) cout << x;
+#endif
+
+#ifndef PRINTF
+#define printf(x) cout << x << endl;
+#endif
