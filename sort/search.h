@@ -3,8 +3,13 @@
 #define SEARCH_H
 #endif
 
-int SeqSearch(int array[], int k, int n) {
-  for (int i = 0; i < n; i++) {
+// Sequential search (ordered array)
+int SeqSearch(int array[], int k, int length) {
+  /**
+   * Sequential search is a simple brute force search, good for small arrays,
+   * and slow for large ones.
+   */
+  for (int i = 0; i < length; i++) {
     if (array[i] == k) {
       return i;
     }
@@ -12,7 +17,11 @@ int SeqSearch(int array[], int k, int n) {
   return -1;
 }
 
+// Binary search (unordered array)
 int BinarySearch(int array[], int k, int length) {
+  /**
+   * Binary search is fast and has no array requirements.
+   */
   int first = 0, end = length - 1;
   while (first <= end) {
     int mid = first + (end - first) / 2;

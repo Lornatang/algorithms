@@ -23,17 +23,15 @@ extern void adjust(int array[], int len, int index);
 extern void HeapSort(int array[], int n);
 
 int main(void) {
-  // int array[] = {4, -2, 1, 5, 8, 1, 20, 17, 3, 1};
-  // int N = len(array);
+  int array[] = {4, -2, 1, 5, 8, 1, 20, 17, 3, 1};
+  int N = len(array);
   // Sort algorithm
-  // QuickSort(array, 0, N - 1);
+  QuickSort(array, 0, N - 1);
   // Search algorithm
-  // int a = BinarySearch(array, 17, N);
+  int a = BinarySearch(array, 17, N);
   // Display array
-  // disp(array, N);
+  disp(array, N);
   // Display elem index;
-  // cout << endl << "Index: " << a + 1;
-
-
+  cout << endl << "Index: " << a + 1;
   return 0;
 }
