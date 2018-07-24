@@ -30,7 +30,11 @@ class Btree {
   // 求二叉树中度数为1的结点数量
   int findnode(tree *);
   // 查找二叉树中是否存在
-  bool search(tree *, int);
+  bool Search(tree *, int);
+
+  void InsertNode(tree* *, int);
+
+  int DeleteNode(tree* *, int);
 };
 
 int Btree::n = 0;
