@@ -1,5 +1,5 @@
 // Author: shiyi
-#include "extension.h"
+#include "extension.hpp"
 
 int main(void) {
   Btree Tree;

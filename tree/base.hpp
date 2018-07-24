@@ -1,6 +1,6 @@
 // Author: shiyi
-#ifndef CUSTOM_H
-#define CUSTOM_H
+#ifndef CUSTOM_HPP
+#define CUSTOM_HPP
 #include <iostream>
 using namespace std;
 

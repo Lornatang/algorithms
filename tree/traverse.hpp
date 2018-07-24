@@ -1,6 +1,6 @@
 // Author: shiyi
-#ifndef TRAVERSE_H
-#define TRAVERSE_H
+#ifndef TRAVERSE_HPP
+#define TRAVERSE_HPP
 #include "base.hpp"
 
 void Btree::Preorder(tree *t)  //这是先序遍历二叉树，采用了递归的方法。
