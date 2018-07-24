@@ -1,5 +1,7 @@
 // Author: shiyi
+#include <iostream>
 #include "find.h"
+using namespace std;
 
 // The preceding sequence traverses the output.
 void Forder(BTNode *root) {

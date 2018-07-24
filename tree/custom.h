@@ -4,8 +4,6 @@
 #endif
 
 #include <cstdlib>
-#include <iostream>
-using namespace std;
 
 // Create a binary tree structure.
 typedef struct node {
@@ -16,7 +14,7 @@ typedef struct node {
 // Create a binary tree.
 BTNode *CreateBTree(int a[], int n) {
   BTNode *root, *c, *p, *pa;
-  root = (BTNode *)malloc(sizeof(BTNode));  // Create the root node.
+  root = (BTNode *)malloc(sizeof(BTNode)); // Create the root node.
   root->data = a[0];
   root->left = NULL;
   root->right = NULL;
@@ -38,6 +36,6 @@ BTNode *CreateBTree(int a[], int n) {
     else
       pa->right = p;
   }
-  free(p);  // Free memory.
+  free(p); // Free memory.
   return root;
 }
