@@ -14,7 +14,7 @@ int main(void) {
 
   print("Number of leaf: ");
   printf(Tree.findleaf(Tree.root));
-  
+
   print("A binary tree with degree one: ");
   printf(Tree.findnode(Tree.root));
 
@@ -39,8 +39,11 @@ int main(void) {
   Tree.DeleteNode(&Tree.root, 5);
   Tree.dispPreorder();
   end;
-  if (Tree.Search(Tree.root, 100)){
+  
+  if (Tree.Search(Tree.root, 100)) {
     print("find!");
+  } else {
+    print("Not find");
   }
   return 0;
 }
