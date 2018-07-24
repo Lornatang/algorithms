@@ -5,10 +5,46 @@
 #include <vector>
 using namespace std;
 
+#ifndef RB_PARENT
+#define rb_parent(r) ((r)->parent)
+#endif
+
+#ifndef RB_COLOR
+#define rb_color(r) ((r)->color)
+#endif
+
+#ifndef RB_IS_RED
+#define rb_is_red(r) ((r)->color == red)
+#endif
+
+#ifndef RB_IS_BLACK
+#define rb_is_black(r) ((r)->color == black)
+#endif
+
+#ifndef RB_SET_BLACK
+#define rb_set_black(r) ((r)->color = black)
+#endif
+
+#ifndef RB_SET_RED
+#define rb_set_red(r) ((r)->color = red)
+#endif
+
+#ifndef RB_SET_BLACK
+#define rb_set_parent(r, p) ((r)->parent = (p))
+#endif
+
+#ifndef RB_SET_COLOR
+#define rb_set_color(r, c) ((r)->color = (c))
+#endif
+
+#ifndef LEN
+#define len(x) sizeof(x) / sizeof(x[0])
+#endif
+
 enum Color { red, black };
 
 void add(vector<int> &array, int a[], int n) {
-  for (int i = 0; i < n; i++)
+  for (int i = 0; i < n; i++) 
     array.push_back(a[i]);
 }
 
@@ -17,24 +53,25 @@ void disp(vector<int> array) {
     cout << *i << " ";
 }
 
-template <class T> class RBTNode {
-public:
-  Color color;     // 颜色
-  T key;           // 关键字(键值)
-  RBTNode *left;   // 左孩子
-  RBTNode *right;  // 右孩子
-  RBTNode *parent; // 父结点
+template <class T>
+class RBTNode {
+ public:
+  Color color;      // 颜色
+  T key;            // 关键字(键值)
+  RBTNode *left;    // 左孩子
+  RBTNode *right;   // 右孩子
+  RBTNode *parent;  // 父结点
 
   RBTNode(T value, Color c, RBTNode *p, RBTNode *l, RBTNode *r)
       : key(value), color(c), parent(), left(l), right(r) {}
 };
 
-template <class T> 
+template <class T>
 class RBTree {
-private:
-  RBTNode<T> *root; // 根结点
+ private:
+  RBTNode<T> *root;  // 根结点
 
-public:
+ public:
   RBTree();
   ~RBTree();
 
@@ -72,7 +109,7 @@ public:
   // 打印红黑树
   void print();
 
-private:
+ private:
   // 前序遍历"红黑树"
   void preOrder(RBTNode<T> *tree) const;
   // 中序遍历"红黑树"
@@ -110,40 +147,16 @@ private:
   void print(RBTNode<T> *tree, T key, int direction);
 };
 
-#ifndef RB_PARENT
-#define rb_parent(r) ((r)->parent)
-#endif
+// 构造函数
+template <class T>
+RBTree<T>::RBTree() : root(NULL) {
+  root = NULL;
+}
 
-#ifndef RB_COLOR
-#define rb_color(r) ((r)->color)
-#endif
-
-#ifndef RB_IS_RED
-#define rb_is_red(r) ((r)->color == red)
-#endif
-
-#ifndef RB_IS_BLACK
-#define rb_is_black(r) ((r)->color == black)
-#endif
-
-#ifndef RB_SET_BLACK
-#define rb_set_black(r) ((r)->color = black)
-#endif
-
-#ifndef RB_SET_RED
-#define rb_set_red(r) ((r)->color = red)
-#endif
-
-#ifndef RB_SET_BLACK
-#define rb_set_parent(r, p) ((r)->parent = (p))
-#endif
-
-#ifndef RB_SET_COLOR
-#define rb_set_color(r, c) ((r)->color = (c))
-#endif
-
-#ifndef LEN
-#define len(x) sizeof(x) / sizeof(x[0])
-#endif
+// 析构函数
+template <class T>
+RBTree<T>::~RBTree() {
+  destroy();
+}
 
 #endif
