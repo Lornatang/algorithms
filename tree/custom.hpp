@@ -1,19 +1,26 @@
+// Author: shiyi
+#ifndef CUSTOM_HPP
+#define CUSTOM_HPP
+#endif
+
+#include <cstdlib>
 #include <iostream>
 using namespace std;
 
-//创建二叉树结构体
+// Create a binary tree structure.
 typedef struct node {
   int data;
   struct node *left, *right;
 } BTNode;
 
-//创建二叉树
+// Create a binary tree.
 BTNode *CreateBTree(int a[], int n) {
   BTNode *root, *c, *p, *pa;
-  root = (BTNode *)malloc(sizeof(BTNode));  //创建根结点
+  root = (BTNode *)malloc(sizeof(BTNode));  // Create the root node.
   root->data = a[0];
-  root->left = root->right = NULL;
-  //	创建其他结点
+  root->left = NULL;
+  root->right = NULL;
+  // Create other nodes.
   for (int i = 1; i < n; i++) {
     p = (BTNode *)malloc(sizeof(BTNode));
     p->data = a[i];
@@ -31,6 +38,6 @@ BTNode *CreateBTree(int a[], int n) {
     else
       pa->right = p;
   }
-  free(p);
+  free(p);  // Free memory.
   return root;
 }
