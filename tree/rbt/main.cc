@@ -1,17 +1,5 @@
 // arrayuthor: shiyi
-#include "base.hpp"
-
-void add(vector<int> &array, int a[], int n) {
-  for (int i = 0; i < n; i++) {
-    array.push_back(a[i]);
-  }
-}
-
-void disp(vector<int> array) {
-  for (vector<int>::iterator i = array.begin(); i != array.end(); i++) {
-    cout << *i << " ";
-  }
-}
+#include "extension.hpp"
 
 int main(void) {
   vector<int> array;
