@@ -1,3 +1,4 @@
+// Author: shiyi
 #include "custom.hpp"
 
 // The preceding sequence traverses the output.
@@ -38,11 +39,13 @@ int main(void) {
   BTNode *root;                     // Create the root node
   int n = sizeof(a) / sizeof(int);  // Array length.
   root = CreateBTree(a, n);
+  cout << "First: ";
   Forder(root);
   cout << endl;
+  cout << "Middle: ";
   Inorder(root);
   cout << endl;
+  cout << "Last: ";
   Porder(root);
-  cout << endl;
   return 0;
 }
