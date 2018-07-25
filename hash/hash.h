@@ -1,8 +1,6 @@
 // Author: shiyi
-#ifndef HASH_HPP
-#define HASH_HPP
-#include <cstdlib>
-#include <iostream>
+#ifndef HASH_H
+#define HASH_H
 #include <string>
 using namespace std;
 
@@ -25,9 +23,7 @@ public:
   void RemoveItem(string name);
 
 private:
-  static const int tableSize = 10; // 修改为40再试试看， 存储会变换
-  item *HashTable[tableSize]; // in this case, 10 buckets, each bucket contains
-                              // a pointer that has the ability to point to
-                              // some item
+  static const int tableSize = 40;
+  item *HashTable[tableSize];
 };
-#endif // HASH_HPP
+#endif // HASH_H

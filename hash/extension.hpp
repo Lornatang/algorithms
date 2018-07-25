@@ -1,4 +1,7 @@
-#include "hash.hpp"
+#ifndef EXTENSION_HPP
+#define EXTENSION_HPP
+#include <iostream>
+#include "hash.h"
 
 Hash::Hash() {
   for (int i = 0; i < tableSize; i++) {
@@ -13,18 +16,12 @@ int Hash::hashFunction(string key) {
   int sum = 0;
   int index = 0;
 
-  index = key.length(); // find the length of the string passing to the function
+  index =
+      key.length();  // find the length of the string passing to the function
 
   for (int i = 0; i < index; i++) {
-    sum += static_cast<int>(key[i]); // 可以修改hash function
+    sum += static_cast<int>(key[i]);  // 可以修改hash function
   }
-
-  //    cout << "key[0] = " << key[0] << endl;
-  //    cout << "key[0] = " << static_cast<int>(key[0]) << endl;
-  //    cout << "key[1] = " << key[1] << endl;
-  //    cout << "key[2] = " << key[2] << endl;
-
-  //    cout << "sum = " << sum << endl;
   index = sum % tableSize;
 
   return index;
@@ -55,15 +52,6 @@ void Hash::AddItem(string name, string drink) {
 
 int Hash::NumberOfItemsInIndex(int index) {
   int Count = 0;
-  //  为什么注释掉的这个统计的程序会出现问题
-  // 因为Hash[index]?????
-
-  //    item* ptr = HashTable[index];
-  //
-  //    while (ptr -> name != "empty") {
-  //        Count++;
-  //        ptr = ptr -> next;
-  //    }
 
   if (HashTable[index]->name == "empty") {
     return Count;
@@ -80,7 +68,7 @@ int Hash::NumberOfItemsInIndex(int index) {
 }
 
 void Hash::PrintTable() {
-  int number; // number of items in each bucket
+  int number;  // number of items in each bucket
   for (int i = 0; i < tableSize; i++) {
     cout << "i = " << i << ": " << endl;
     // print the first element in the bucket, and we can also see if there are
@@ -190,3 +178,4 @@ void Hash::RemoveItem(string name) {
     }
   }
 }
+#endif  // EXTENSION_HPP
